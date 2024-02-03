@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<style>
+    h2{
+        color:rgb(3, 62, 3);
+    }
+    body{
+        background-color:  rgb(238, 167, 80);
+    }
+    ol{
+        color: rgb(144, 80, 3);
+    }
+</style>
+    
+<body>
+
+<h2>Music Max</h2>
+
+<ol id="artistList"></ol>
+
+<script>
+var text = 
+'{"author":[' +
+                '{"SongName": "Tadow",  "FirstName": "Masego",  "LastName": "FKJ" },' +
+                '{"SongName": "34+35",  "FirstName": "Ariana",  "LastName": "Grande" },' +
+                '{"SongName": "Далада",  "FirstName": "PRiNCE",  "LastName": "Папа" }          ]       }';
+
+var obj = JSON.parse(text);
+
+var artistListElement = document.getElementById("artistList");
+
+// Loop through the array and append each artist's name to the list
+obj.author.forEach(function(artist) {
+    var listItem = document.createElement("li");
+    listItem.innerHTML = '<strong>' + artist.SongName + '</strong>' + " by " + '<em>' + artist.FirstName + " " + artist.LastName + '</em>';
+    artistListElement.appendChild(listItem);
+});
+</script>
+
+</body>
+</html>
+
+
+
+
